@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZXO | کلن کلش آف کلنز</title>
+<meta name="description" content="ZXO یک کلن فعال در بازی Clash of Clans است. جنگ‌های منظم، اعضای فعال، و گردونه‌ی شانس هفتگی برای اعضا.">
+<meta name="keywords" content="ZXO, کلن ZXO, کلش اف کلنز, کلن کلش, clash of clans clan, گردونه شانس">
+<meta property="og:title" content="ZXO | کلن کلش آف کلنز">
+<meta property="og:description" content="کلن ZXO — جنگ، ترافی، جامعه‌ی فعال و گردونه‌ی شانس هفتگی.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Fredoka:wght@500;600;700&family=Vazirmatn:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #FBF6FF;
+    --panel: #FFFFFF;
+    --panel-2: #F4EBFF;
+    --line: #E7DAFB;
+    --ink: #291A47;
+    --violet: #7B2FF7;
+    --violet-2: #B98CFB;
+    --gold: #FFC93C;
+    --pink: #FF3F8E;
+    --mint: #17B884;
+    --dim: #7A6E97;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(circle at 8% 6%, rgba(255,63,142,0.10), transparent 40%),
+      radial-gradient(circle at 94% 18%, rgba(123,47,247,0.10), transparent 38%),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Vazirmatn', sans-serif;
+    line-height:1.85;
+    overflow-x:hidden;
+  }
+  .disp{ font-family:'Lalezar', sans-serif; font-weight:400; }
+  .brand-font{ font-family:'Fredoka', sans-serif; direction:ltr; unicode-bidi:isolate; }
+  a{color:inherit; text-decoration:none;}
+  :focus-visible{ outline:3px solid var(--gold); outline-offset:3px; }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 24px; }
+  svg{ display:block; }
+
+  .card{
+    background:var(--panel);
+    border:2px solid var(--line);
+    border-radius:22px;
+    box-shadow:0 10px 26px rgba(123,47,247,0.08);
+  }
+
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,246,255,0.97);
+    border-bottom:2px solid var(--line);
+  }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:78px; }
+  .brand{ display:flex; align-items:center; gap:10px; }
+  .brand .chip{
+    width:34px; height:34px; border-radius:50%;
+    background:conic-gradient(var(--gold) 0 25%, var(--pink) 25% 50%, var(--violet) 50% 75%, var(--mint) 75% 100%);
+    border:2px solid var(--ink);
+  }
+  .brand .word{ font-size:1.5rem; color:var(--violet); }
+  .brand .word span{ color:var(--dim); font-size:0.8rem; font-family:'Vazirmatn',sans-serif; letter-spacing:0.02em; margin-right:6px; }
+  nav ul{ display:flex; gap:24px; list-style:none; }
+  nav ul li a{ font-size:0.95rem; color:var(--ink); font-weight:600; transition:color .2s; }
+  nav ul li a:hover{ color:var(--violet); }
+  .cta-btn{
+    font-family:'Vazirmatn', sans-serif; font-weight:700;
+    background:linear-gradient(180deg, var(--pink), #E22E75);
+    color:#fff; padding:12px 24px; font-size:0.92rem;
+    border-radius:999px; border:none; cursor:pointer;
+    box-shadow:0 6px 0 #B01B57;
+    transition:transform .12s, box-shadow .12s;
+  }
+  .cta-btn:hover{ transform:translateY(2px); box-shadow:0 4px 0 #B01B57; }
+  .cta-btn:active{ transform:translateY(6px); box-shadow:0 0 0 #B01B57; }
+  .cta-ghost{
+    font-weight:700; color:var(--violet); background:var(--panel-2);
+    border:2px solid var(--violet-2); padding:11px 22px; border-radius:999px;
+  }
+
+  /* Hero */
+  .hero{ padding:70px 24px 40px; text-align:center; position:relative; }
+  .eyebrow{
+    display:inline-block; font-weight:700; color:var(--violet);
+    background:var(--panel-2); border:2px solid var(--violet-2);
+    padding:6px 18px; border-radius:999px; font-size:0.8rem; margin-bottom:24px;
+  }
+  .hero .disp{ font-size:clamp(2.6rem, 8vw, 4.6rem); color:var(--ink); line-height:1.15; margin-bottom:16px; }
+  .hero .disp .hl{ color:var(--violet); }
+  .hero p.sub{ color:var(--dim); max-width:560px; margin:0 auto 30px; font-size:1.05rem; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+  /* Confetti dots background accent */
+  .dots{ position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+  .dot{ position:absolute; border-radius:50%; opacity:0.55; }
+
+  section{ padding:80px 0; }
+  .sec-eyebrow{
+    display:inline-block; font-weight:700; color:var(--pink);
+    font-size:0.78rem; letter-spacing:0.1em; margin-bottom:10px;
+  }
+  h2.disp{ font-size:clamp(1.8rem,4vw,2.6rem); color:var(--ink); margin-bottom:18px; max-width:640px; }
+  .lead{ color:var(--dim); max-width:640px; font-size:1.02rem; margin-bottom:8px; }
+
+  /* Stat chips */
+  .stat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:36px; }
+  .stat{ padding:24px 16px; text-align:center; }
+  .stat .num{ font-family:'Fredoka',sans-serif; direction:ltr; font-size:2rem; font-weight:700; color:var(--violet); }
+  .stat .lbl{ color:var(--dim); font-size:0.85rem; margin-top:6px; }
+  .stat-note{ color:var(--dim); font-size:0.78rem; margin-top:16px; opacity:0.8; }
+
+  /* Roles as chips */
+  .role-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:36px; }
+  .role-card{ padding:28px 22px; text-align:center; transition:transform .2s; }
+  .role-card:hover{ transform:translateY(-4px); }
+  .role-card .icon{ margin:0 auto 14px; }
+  .role-card .disp{ font-size:1.6rem; color:var(--ink); }
+  .role-card p{ color:var(--dim); font-size:0.9rem; margin-top:6px; }
+
+  /* Roster */
+  .roster-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:36px; }
+  .roster-card{ padding:22px 14px; text-align:center; }
+  .roster-card .avatar{
+    width:56px; height:56px; margin:0 auto 12px; border-radius:50%;
+    background:linear-gradient(135deg, var(--violet-2), var(--pink));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fredoka',sans-serif; font-weight:700; color:#fff; font-size:1.2rem;
+  }
+  .roster-card .name{ font-weight:700; margin-bottom:2px; }
+  .roster-card .role{ color:var(--violet); font-size:0.78rem; font-weight:700; }
+  .roster-card .th{ color:var(--dim); font-size:0.78rem; margin-top:4px; }
+
+  /* WHEEL — signature section */
+  .wheel-section{
+    background:radial-gradient(ellipse at 50% 0%, rgba(123,47,247,0.10), transparent 60%), var(--panel-2);
+    border-top:2px solid var(--line); border-bottom:2px solid var(--line);
+  }
+  .wheel-layout{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .wheel-stage{ position:relative; width:100%; max-width:400px; margin:0 auto; aspect-ratio:1/1; }
+  .marquee{
+    position:absolute; inset:-22px; border-radius:50%;
+  }
+  .bulb{
+    position:absolute; width:9px; height:9px; border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 8px 2px rgba(255,201,60,0.7);
+    top:50%; left:50%;
+    animation:blink 1.2s ease-in-out infinite;
+  }
+  @keyframes blink{ 0%,100%{ opacity:1; } 50%{ opacity:0.25; } }
+  @media (prefers-reduced-motion: reduce){ .bulb{ animation:none; } }
+  .pointer{
+    position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+    width:0; height:0; z-index:5;
+    border-left:16px solid transparent; border-right:16px solid transparent;
+    border-top:26px solid var(--ink);
+    filter:drop-shadow(0 3px 2px rgba(0,0,0,0.25));
+  }
+  .wheel{
+    position:relative; width:100%; height:100%; border-radius:50%;
+    border:6px solid var(--ink);
+    transition: transform 4s cubic-bezier(0.17,0.83,0.32,1);
+    box-shadow:0 10px 30px rgba(41,26,71,0.25);
+    background: conic-gradient(
+      #7B2FF7 0deg 45deg,
+      #FF3F8E 45deg 90deg,
+      #FFC93C 90deg 135deg,
+      #17B884 135deg 180deg,
+      #7B2FF7 180deg 225deg,
+      #FF3F8E 225deg 270deg,
+      #FFC93C 270deg 315deg,
+      #17B884 315deg 360deg
+    );
+  }
+  .seg-label{
+    position:absolute; top:50%; left:50%; width:0; height:0;
+    font-family:'Fredoka',sans-serif; direction:ltr; font-weight:700; color:#fff;
+    font-size:1.05rem; text-shadow:0 1px 3px rgba(0,0,0,0.35);
+  }
+  .seg-label span{ display:block; transform:translate(-50%, -145px); }
+  .hub{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:64px; height:64px; border-radius:50%;
+    background:var(--panel); border:4px solid var(--ink);
+    display:flex; align-items:center; justify-content:center; z-index:4;
+  }
+  .wheel-info{ }
+  .gem-icon{ display:inline-block; vertical-align:middle; margin-inline-start:4px; }
+  .wheel-result{
+    margin-top:22px; min-height:46px;
+    font-family:'Fredoka',sans-serif; direction:ltr; font-size:1.3rem; font-weight:700;
+    color:var(--violet);
+  }
+  .wheel-note{ color:var(--dim); font-size:0.85rem; margin-top:18px; padding:14px; background:var(--panel); border-radius:14px; border:2px dashed var(--violet-2); }
+
+  /* Campaign path */
+  .map-wrap{ margin-top:40px; }
+  .map-path{ display:flex; align-items:center; justify-content:space-between; position:relative; }
+  .map-path::before{
+    content:""; position:absolute; top:28px; left:6%; right:6%; height:3px;
+    background:repeating-linear-gradient(90deg, var(--violet-2) 0 8px, transparent 8px 16px);
+    z-index:0;
+  }
+  .map-node{ position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; gap:10px; flex:1; }
+  .map-node .dot-node{ width:56px; height:56px; border-radius:50%; background:var(--panel); border:3px solid var(--gold); display:flex; align-items:center; justify-content:center; }
+  .map-node.locked .dot-node{ border-color:var(--line); opacity:0.55; }
+  .map-node .lbl{ font-size:0.78rem; color:var(--dim); text-align:center; font-weight:600; }
+
+  /* Join form */
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:22px; }
+  .form-grid .full{ grid-column:1/-1; }
+  .field label{ display:block; font-size:0.85rem; color:var(--dim); margin-bottom:6px; font-weight:600; }
+  .field input{
+    width:100%; background:var(--panel-2); border:2px solid var(--line); color:var(--ink);
+    padding:12px 14px; border-radius:12px; font-family:'Vazirmatn', sans-serif; font-size:0.95rem;
+  }
+  .field input:focus{ outline:none; border-color:var(--violet); }
+  .form-note{ color:var(--dim); font-size:0.82rem; margin-top:14px; }
+  .submit-row{ margin-top:20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+  #formStatus{ font-size:0.85rem; color:var(--mint); font-weight:600; }
+
+  footer{ padding:44px 0; border-top:2px solid var(--line); }
+  .foot-row{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .foot-links{ display:flex; gap:22px; list-style:none; }
+  .foot-links a{ color:var(--dim); font-size:0.9rem; font-weight:600; }
+  .foot-links a:hover{ color:var(--violet); }
+  .copyright{ color:var(--dim); font-size:0.8rem; }
+
+  @media (max-width: 900px){
+    .wheel-layout{ grid-template-columns:1fr; }
+    .stat-grid, .role-grid{ grid-template-columns:1fr 1fr; }
+    .roster-grid{ grid-template-columns:1fr 1fr; }
+    .form-grid{ grid-template-columns:1fr; }
+    nav ul{ display:none; }
+    .map-path{ flex-direction:column; gap:26px; }
+    .map-path::before{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="chip"></div>
+      <div class="word disp">ZXO<span>کلن کلش</span></div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">درباره</a></li>
+        <li><a href="#wheel">گردونه شانس</a></li>
+        <li><a href="#roster">اعضا</a></li>
+        <li><a href="#join">عضویت</a></li>
+      </ul>
+    </nav>
+    <a href="#wheel" class="cta-btn">چرخ شانس 🎡</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">CLASH OF CLANS · ZXO</div>
+      <h1 class="disp">کلنی که هم <span class="hl">می‌جنگه</span>، هم <span class="hl">شانستو</span> امتحان می‌کنه</h1>
+      <p class="sub">توی ZXO هر هفته جنگ داریم، هر هفته هم یه گردونه‌ی شانس با جم‌های واقعی — از عضو تازه‌وارد تا کهنه‌کار، همه شانس بردن دارن.</p>
+      <div class="hero-actions">
+        <a href="#wheel" class="cta-btn">همین الان بچرخون</a>
+        <a href="#join" class="cta-ghost">عضو کلن شو</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-eyebrow">// درباره</div>
+      <h2 class="disp">دهکده‌ای که با هم می‌سازیمش</h2>
+      <p class="lead">ZXO با یک گروه دوستانه شکل گرفت و حالا به کلنی با سابقه‌ی جنگی قوی تبدیل شده. توی هر جنگ حمله کن، پایگاه‌ت رو مرتب آپدیت کن، و به بقیه‌ی اعضا کمک کن.</p>
+      <div class="stat-grid">
+        <div class="stat card"><div class="num brand-font">۱۸</div><div class="lbl">لول کلن</div></div>
+        <div class="stat card"><div class="num brand-font">۴۲K+</div><div class="lbl">امتیاز ترافی</div></div>
+        <div class="stat card"><div class="num brand-font">۹۲٪</div><div class="lbl">نرخ برد جنگ</div></div>
+        <div class="stat card"><div class="num brand-font">۵۰</div><div class="lbl">عضو فعال</div></div>
+      </div>
+      <div class="stat-note">آخرین به‌روزرسانی: توسط مدیریت کلن، به‌صورت دستی ثبت می‌شود.</div>
+    </div>
+  </section>
+
+  <section id="wheel" class="wheel-section">
+    <div class="wrap">
+      <div class="wheel-layout">
+        <div class="wheel-stage">
+          <div class="marquee" id="marquee"></div>
+          <div class="pointer"></div>
+          <div class="wheel" id="wheel">
+            <div class="seg-label" style="transform:rotate(22.5deg);"><span>۵</span></div>
+            <div class="seg-label" style="transform:rotate(67.5deg);"><span>۱۰</span></div>
+            <div class="seg-label" style="transform:rotate(112.5deg);"><span>۱۵</span></div>
+            <div class="seg-label" style="transform:rotate(157.5deg);"><span>۲۰</span></div>
+            <div class="seg-label" style="transform:rotate(202.5deg);"><span>۳۰</span></div>
+            <div class="seg-label" style="transform:rotate(247.5deg);"><span>۴۰</span></div>
+            <div class="seg-label" style="transform:rotate(292.5deg);"><span>۶۰</span></div>
+            <div class="seg-label" style="transform:rotate(337.5deg);"><span>۸۰</span></div>
+          </div>
+          <div class="hub">💎</div>
+        </div>
+
+        <div class="wheel-info">
+          <div class="sec-eyebrow">// چرخ شانس هفتگی</div>
+          <h2 class="disp">گردونه‌ی جم ZXO</h2>
+          <p class="lead">از ۵ جم شروع می‌شه و تا ۸۰ جم می‌ره بالا. بچرخون و ببین امروز چقدر شانس آوردی!</p>
+          <button type="button" class="cta-btn" onclick="spinWheel()" id="spinBtn">بچرخون 🎡</button>
+          <div class="wheel-result" id="wheelResult"></div>
+          <div class="wheel-note">این گردونه فعلاً یک نسخه‌ی نمایشی/سرگرمی‌ست و هر بازدیدکننده می‌تونه هر چند بار که بخواد بچرخونتش. برای راه‌اندازی نسخه‌ی واقعی هفتگی (با محدودیت یک‌بار برای هر عضو)، نیاز به سیستم ثبت‌نام و سرور داریم.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roles">
+    <div class="wrap">
+      <div class="sec-eyebrow">// ساختار</div>
+      <h2 class="disp">جایگاه‌های کلن</h2>
+      <p class="lead">هر جایگاه مسئولیت مشخصی توی مدیریت جنگ و دهکده داره.</p>
+      <div class="role-grid">
+        <div class="role-card card">
+          <svg class="icon" width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M3 8l3 3 3-5 3 5 3-5 3 5 3-3-2 9H5L3 8z" stroke="#7B2FF7" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <div class="disp">LEADER</div><p>مدیریت کلی کلن، شروع جنگ‌ها و تصمیم‌گیری نهایی.</p>
+        </div>
+        <div class="role-card card">
+          <svg class="icon" width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5v6c0 5.2 3.4 9 8 11 4.6-2 8-5.8 8-11V5l-8-3z" stroke="#FF3F8E" stroke-width="1.6"/></svg>
+          <div class="disp">CO-LEADER</div><p>پذیرش عضو جدید، نظم جنگ و پشتیبانی از اعضا.</p>
+        </div>
+        <div class="role-card card">
+          <svg class="icon" width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M5 4c5 0 9 4 9 9M5 4c0 5 4 9 9 9M5 4l14 14" stroke="#17B884" stroke-width="1.6" stroke-linecap="round"/><circle cx="19" cy="18" r="1.6" fill="#17B884"/></svg>
+          <div class="disp">ELDER</div><p>کمک به اعضای تازه‌وارد و راهنمایی استراتژی حمله.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roster">
+    <div class="wrap">
+      <div class="sec-eyebrow">// اعضا</div>
+      <h2 class="disp">اعضای شاخص کلن</h2>
+      <p class="lead">این یک لیست نمونه است — رهبر کلن می‌تواند بعداً اسامی واقعی را جایگزین کند.</p>
+      <div class="roster-grid">
+        <div class="roster-card card"><div class="avatar brand-font">A</div><div class="name">Amir</div><div class="role">Leader</div><div class="th">TH14</div></div>
+        <div class="roster-card card"><div class="avatar brand-font">S</div><div class="name">Sina</div><div class="role">Co-Leader</div><div class="th">TH13</div></div>
+        <div class="roster-card card"><div class="avatar brand-font">N</div><div class="name">Niloofar</div><div class="role">Elder</div><div class="th">TH12</div></div>
+        <div class="roster-card card"><div class="avatar brand-font">R</div><div class="name">Reza</div><div class="role">Member</div><div class="th">TH12</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="campaign">
+    <div class="wrap">
+      <div class="sec-eyebrow">// مسیر عضویت</div>
+      <h2 class="disp">مسیر تا روستر اصلی</h2>
+      <p class="lead">مراحلی که هر عضو تازه‌وارد برای رسیدن به روستر اصلی جنگ طی می‌کنه.</p>
+      <div class="map-wrap">
+        <div class="map-path">
+          <div class="map-node">
+            <div class="dot-node">✅</div>
+            <span class="lbl">عضویت<br>در کلن</span>
+          </div>
+          <div class="map-node">
+            <div class="dot-node">🏠</div>
+            <span class="lbl">کلن<br>مادر</span>
+          </div>
+          <div class="map-node">
+            <div class="dot-node">⚔️</div>
+            <span class="lbl">آزمون<br>جنگی</span>
+          </div>
+          <div class="map-node locked">
+            <div class="dot-node">🔒</div>
+            <span class="lbl">روستر<br>اصلی</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join">
+    <div class="wrap">
+      <div class="sec-eyebrow">// عضویت</div>
+      <h2 class="disp">می‌خوای وارد ZXO بشی؟</h2>
+      <p class="lead" style="margin-bottom:8px;">فرم رو پر کن؛ با زدن دکمه‌ی ارسال، پیامت آماده می‌شه و مستقیم به تلگرام کلن باز می‌شه — فقط کافیه بفرستیش.</p>
+
+      <div class="card" style="margin-top:28px; padding:36px 30px;">
+        <div class="form-grid">
+          <div class="field"><label for="fName">نام درون‌بازی</label><input type="text" id="fName" placeholder="مثلاً Amir"></div>
+          <div class="field"><label for="fTag">تگ بازیکن</label><input type="text" id="fTag" placeholder="#ABC123"></div>
+          <div class="field"><label for="fTh">لول تاون‌هال</label><input type="text" id="fTh" placeholder="مثلاً 12"></div>
+          <div class="field"><label for="fTrophy">امتیاز ترافی</label><input type="text" id="fTrophy" placeholder="مثلاً 4200"></div>
+          <div class="field full"><label for="fContact">آیدی تلگرام شما</label><input type="text" id="fContact" placeholder="@username"></div>
+        </div>
+        <div class="submit-row">
+          <button type="button" class="cta-btn" onclick="sendJoinRequest()">ارسال درخواست به تلگرام</button>
+          <span id="formStatus"></span>
+        </div>
+        <p class="form-note">این سایت فرم رو ذخیره نمی‌کنه؛ فقط پیامت رو آماده می‌کنه تا خودت توی تلگرام بفرستی. رهبری کلن معمولاً ظرف ۲۴ ساعت پاسخ می‌ده.</p>
+        <p class="form-note">تماس مستقیم با مدیر کلن: <a href="https://t.me/AmirhossinZXO" target="_blank" rel="noopener" style="color:var(--violet); font-weight:700;">@AmirhossinZXO</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="brand"><div class="chip" style="width:26px;height:26px;"></div><div class="word disp" style="font-size:1.1rem;">ZXO</div></div>
+    <ul class="foot-links">
+      <li><a href="https://t.me/ZXOCLN" target="_blank" rel="noopener">تلگرام</a></li>
+      <li><a href="#" title="لینک اینستاگرام هنوز ثبت نشده">اینستاگرام</a></li>
+    </ul>
+    <div class="copyright">© ۱۴۰۵ ZXO Clan — این سایت طرفدارساخته است و به شرکت Supercell وابسته نیست.</div>
+  </div>
+</footer>
+
+<script>
+  // Marquee bulbs around the wheel
+  (function(){
+    var marquee = document.getElementById('marquee');
+    var count = 16;
+    for(var i=0;i<count;i++){
+      var deg = i * (360/count);
+      var b = document.createElement('div');
+      b.className = 'bulb';
+      b.style.transform = 'translate(-50%,-50%) rotate('+deg+'deg) translate(0,-190px)';
+      b.style.animationDelay = (i * 0.08) + 's';
+      marquee.appendChild(b);
+    }
+  })();
+
+  // Wheel of fortune (demo — anyone can spin anytime, no persistence)
+  var segments = [5,10,15,20,30,40,60,80]; // clockwise from top, 45deg each
+  var spinning = false;
+  var currentRotation = 0;
+
+  function spinWheel(){
+    if(spinning) return;
+    spinning = true;
+    var btn = document.getElementById('spinBtn');
+    var result = document.getElementById('wheelResult');
+    btn.disabled = true;
+    result.textContent = 'در حال چرخش...';
+
+    var extraTurns = 5 + Math.floor(Math.random()*3); // 5-7 full turns
+    var randomOffset = Math.random() * 360;
+    var newRotation = currentRotation + extraTurns*360 + randomOffset;
+    currentRotation = newRotation;
+
+    var wheel = document.getElementById('wheel');
+    wheel.style.transform = 'rotate(' + newRotation + 'deg)';
+
+    setTimeout(function(){
+      var normalized = (360 - (newRotation % 360)) % 360;
+      var index = Math.floor(normalized / 45) % 8;
+      var prize = segments[index];
+      result.textContent = 'شانس آوردی! 💎 ' + prize + ' جم بردی';
+      btn.disabled = false;
+      spinning = false;
+    }, 4200);
+  }
+
+  function sendJoinRequest(){
+    var name = document.getElementById('fName').value.trim();
+    var tag = document.getElementById('fTag').value.trim();
+    var th = document.getElementById('fTh').value.trim();
+    var trophy = document.getElementById('fTrophy').value.trim();
+    var contact = document.getElementById('fContact').value.trim();
+    var status = document.getElementById('formStatus');
+
+    if(!name || !tag || !th){
+      status.textContent = 'لطفاً حداقل نام، تگ و لول تاون‌هال رو پر کن.';
+      status.style.color = '#E22E75';
+      return;
+    }
+
+    var msg = 'درخواست عضویت در ZXO' + '\n' +
+              'نام: ' + name + '\n' +
+              'تگ: ' + tag + '\n' +
+              'تاون‌هال: ' + th + '\n' +
+              'ترافی: ' + (trophy || '-') + '\n' +
+              'آیدی تماس: ' + (contact || '-');
+
+    var url = 'https://t.me/share/url?url=' + encodeURIComponent('https://t.me/ZXOCLN') + '&text=' + encodeURIComponent(msg);
+    status.textContent = 'در حال باز کردن تلگرام...';
+    status.style.color = '#17B884';
+    window.open(url, '_blank');
+  }
+</script>
+
+</body>
+</html>
