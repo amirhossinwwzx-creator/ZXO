@@ -96,6 +96,20 @@
 
   /* ---------- HERO ---------- */
   .hero{padding:96px 0 70px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero-art{position:relative;}
+  .hero-art img{
+    width:100%; border-radius:20px; border:1px solid var(--line);
+    box-shadow: var(--shadow), 0 0 0 1px rgba(242,168,29,0.08);
+  }
+  .hero-art::after{
+    content:''; position:absolute; inset:-20px; z-index:-1; border-radius:28px;
+    background: radial-gradient(400px 300px at 70% 20%, rgba(242,168,29,0.18), transparent 70%);
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1;}
+  }
   .eyebrow{
     display:inline-flex; align-items:center; gap:8px;
     font-family:'Bungee',sans-serif; font-size:12px; letter-spacing:.08em;
@@ -263,15 +277,20 @@
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <span class="eyebrow">CLASH OF CLANS</span>
-    <h1>یک کلن، یک قلعه، <em>یک هدف مشترک</em>: برد در هر جنگ.</h1>
-    <p class="lead">کلن ZXO خونه‌ی بازیکنانی‌ست که جنگ‌های کلنی رو جدی می‌گیرن، هر روز دهکده‌شون رو ارتقا می‌دن و توی هر وار حداقل تمام ستاره‌ها رو هدف می‌گیرن.</p>
-    <div class="hero-actions">
-      <a href="#join" class="btn btn-gold">درخواست عضویت</a>
-      <a href="#about" class="btn btn-ghost">درباره‌ی کلن</a>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">CLASH OF CLANS</span>
+      <h1>یک کلن، یک قلعه، <em>یک هدف مشترک</em>: برد در هر جنگ.</h1>
+      <p class="lead">کلن ZXO خونه‌ی بازیکنانی‌ست که جنگ‌های کلنی رو جدی می‌گیرن، هر روز دهکده‌شون رو ارتقا می‌دن و توی هر وار حداقل تمام ستاره‌ها رو هدف می‌گیرن.</p>
+      <div class="hero-actions">
+        <a href="#join" class="btn btn-gold">درخواست عضویت</a>
+        <a href="https://link.clashofclans.com/fa?action=OpenClanProfile&tag=2UPLC9JY8" target="_blank" rel="noopener" class="btn btn-ghost">مشاهده کلن در بازی</a>
+      </div>
+      <div class="clan-tag">Clan Tag <a href="https://link.clashofclans.com/fa?action=OpenClanProfile&tag=2UPLC9JY8" target="_blank" rel="noopener" style="color:var(--gold)">#2UPLC9JY8</a></div>
     </div>
-    <div class="clan-tag">Clan Tag <span style="color:var(--gold)">#ZXO2026</span></div>
+    <div class="hero-art">
+      <img src="zxo-hero.png" alt="پرچم کلن ZXO">
+    </div>
   </div>
 </section>
 
@@ -357,7 +376,11 @@
         <span class="kicker">RECRUITMENT</span>
         <h2>می‌خوای وارد ZXO بشی؟</h2>
         <p>درخواستت رو بفرست، رهبری کلن ظرف ۲۴ ساعت بررسی می‌کنه.</p>
-        <a href="#" class="btn btn-gold">ارسال درخواست عضویت</a>
+        <a href="https://t.me/AmirhossinZXO" target="_blank" rel="noopener" class="btn btn-gold">ارسال درخواست عضویت</a>
+        <a href="https://link.clashofclans.com/fa?action=OpenClanProfile&tag=2UPLC9JY8" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-inline-start:10px;">پیوستن مستقیم در بازی</a>
+        <div class="clan-tag" style="margin-top:18px;">پشتیبانی و ثبت‌نام در تلگرام
+          <a href="https://t.me/AmirhossinZXO" target="_blank" rel="noopener" style="color:var(--gold)">@AmirhossinZXO</a>
+        </div>
       </div>
       <ul class="req-list">
         <li>حداقل تاون‌هال ۱۰</li>
@@ -376,6 +399,7 @@
       <b>ZXO</b>
     </div>
     <div class="foot-links">
+      <a href="https://t.me/AmirhossinZXO" target="_blank" rel="noopener">تلگرام</a>
       <a href="#">دیسکورد</a>
       <a href="#">اینستاگرام</a>
     </div>
