@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZXO | هاب کلن‌های چندبازی</title>
+<meta name="description" content="ZXO یک کلن چندبازیه با جنگ‌های منظم در Clash of Clans، Call of Duty و Minecraft. رتبه‌بندی، اخبار و جامعه‌ای فعال.">
+<meta name="keywords" content="ZXO, کلن ZXO, کلش اف کلنز, کالاف دیوتی, ماینکرفت, clash of clans clan">
+<meta property="og:title" content="ZXO | هاب کلن چندبازی">
+<meta property="og:description" content="کلن ZXO — جنگ، رتبه‌بندی و جامعه‌ای فعال در چند بازی.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Bungee&family=Anton&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0d10;
+    --ink-2:#14171c;
+    --paper:#eef1f5;
+    --gold:#c4232f;
+    --gold-dim:#8f1a24;
+    --ember:#4a6fa5;
+    --elixir:#7c4fd9;
+    --emerald:#34b36a;
+    --sapphire:#3f7fd1;
+    --crimson:#7c8796;
+    --line:rgba(238,241,245,0.12);
+    --shadow: 0 18px 40px rgba(0,0,0,0.55);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1100px 600px at 15% -10%, rgba(124,79,217,0.16), transparent 60%),
+      radial-gradient(900px 500px at 100% 0%, rgba(63,127,209,0.18), transparent 55%),
+      radial-gradient(700px 500px at 50% 100%, rgba(196,35,47,0.16), transparent 60%),
+      var(--ink);
+    color:var(--paper);
+    font-family:'Vazirmatn', sans-serif;
+    line-height:1.75;
+  }
+  h1,h2,h3, .display{
+    font-family:'Vazirmatn', sans-serif;
+    font-weight:800;
+    letter-spacing:0;
+  }
+  .tag-en{
+    font-family:'Bungee', 'Anton', sans-serif;
+    letter-spacing: 0.03em;
+    direction:ltr;
+    display:inline-block;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  ul{margin:0;padding:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--gold); color:var(--ink);}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:80;
+    background:rgba(21,16,9,0.9);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+  }
+  .brand{display:flex;align-items:center;gap:10px; text-decoration:none;}
+  .crest{
+    width:38px;height:38px;border-radius:9px; flex:none;
+    background:conic-gradient(from 220deg, var(--gold), var(--ember), var(--crimson), var(--elixir), var(--sapphire), var(--emerald), var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    box-shadow: inset 0 0 0 2px rgba(21,16,9,0.55), 0 6px 16px rgba(0,0,0,0.4);
+  }
+  .crest span{
+    font-family:'Bungee',sans-serif; font-size:13px;
+    background:var(--ink); color:var(--gold);
+    width:26px;height:26px;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .brand-name{font-size:18px;font-weight:800;}
+  nav.links{display:flex;gap:6px;font-size:15px; align-items:center;}
+  nav.links > a{opacity:0.85; transition:opacity .2s, color .2s; text-decoration:none; padding:10px 12px; border-radius:8px;}
+  nav.links > a:hover{opacity:1; color:var(--gold);}
+
+  .has-drop{position:relative;}
+  .drop-trigger{
+    background:none; border:none; cursor:pointer; font:inherit; color:inherit;
+    display:flex; align-items:center; gap:6px; padding:10px 12px; border-radius:8px;
+    opacity:.85; transition:opacity .2s, color .2s;
+  }
+  .drop-trigger:hover{opacity:1; color:var(--gold);}
+  .drop-trigger .car{font-size:10px; transition:transform .2s ease;}
+  .has-drop:hover .drop-trigger .car, .has-drop.open .drop-trigger .car{transform:rotate(180deg);}
+  .dropdown{
+    position:absolute; top:100%; right:0; margin-top:8px; min-width:220px;
+    background:var(--ink-2); border:1px solid var(--line); border-radius:12px;
+    padding:8px; box-shadow:var(--shadow);
+    opacity:0; visibility:hidden; transform:translateY(-6px);
+    transition:opacity .18s ease, transform .18s ease, visibility .18s;
+  }
+  .has-drop:hover .dropdown, .has-drop.open .dropdown{opacity:1; visibility:visible; transform:translateY(0);}
+  .dropdown a{
+    display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px;
+    text-decoration:none; font-size:14px; opacity:.9;
+  }
+  .dropdown a:hover{background:rgba(196,35,47,0.1); color:var(--gold); opacity:1;}
+  .dropdown .soon{margin-inline-start:auto; font-size:10px; opacity:.55; font-family:'Bungee',sans-serif; direction:ltr;}
+
+  .btn{
+    font-weight:700; font-size:14px; padding:10px 20px; border-radius:8px;
+    text-decoration:none; display:inline-block; border:1px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease; cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:linear-gradient(135deg, var(--gold), var(--ember)); color:var(--ink); box-shadow:0 10px 24px rgba(196,35,47,0.25);}
+  .btn-ghost{border-color:var(--line); color:var(--paper); background:none;}
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+
+  .burger{display:none; background:none; border:1px solid var(--line); border-radius:8px; width:42px; height:42px; color:var(--paper); font-size:18px; cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:80px 0 70px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero-art{position:relative;}
+  .hero-art img{
+    width:100%; border-radius:20px; border:1px solid var(--line);
+    box-shadow: var(--shadow), 0 0 0 1px rgba(196,35,47,0.1);
+    filter:url(#flagWave);
+    animation: flagSway 5s ease-in-out infinite;
+    transform-origin: 18% 30%;
+  }
+  .hero-art::after{
+    content:''; position:absolute; inset:-20px; z-index:-1; border-radius:28px;
+    background: radial-gradient(400px 300px at 70% 20%, rgba(196,35,47,0.18), transparent 70%);
+  }
+  @keyframes flagSway{
+    0%,100%{ transform:rotate(0deg) skewY(0deg); }
+    25%{ transform:rotate(0.4deg) skewY(0.6deg); }
+    50%{ transform:rotate(-0.2deg) skewY(-0.4deg); }
+    75%{ transform:rotate(0.3deg) skewY(0.5deg); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-art img{ animation:none; filter:none; }
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'Bungee',sans-serif; font-size:12px; letter-spacing:.08em;
+    color:var(--ink); background:var(--gold);
+    padding:7px 14px; border-radius:100px; direction:ltr;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5.4vw, 60px);
+    margin:26px 0 18px; line-height:1.28; max-width:820px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(90deg, var(--gold), var(--ember));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.lead{max-width:640px; font-size:18px; opacity:0.85; margin-bottom:34px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px;}
+  .clan-tag{
+    display:inline-flex; align-items:center; gap:10px; direction:ltr;
+    font-family:'Bungee',sans-serif; font-size:13px; color:var(--paper); opacity:.65;
+  }
+
+  /* ticker */
+  .ticker-wrap{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:linear-gradient(90deg, rgba(212,42,60,0.12), rgba(155,79,224,0.12));
+    overflow:hidden; padding:14px 0;
+  }
+  .ticker{display:flex; gap:40px; white-space:nowrap; animation:scroll 26s linear infinite; width:max-content;}
+  .ticker span{font-family:'Bungee',sans-serif; font-size:13px; direction:ltr; opacity:.9;}
+  .ticker span.win{color:var(--emerald);}
+  .ticker span.mid{color:var(--gold);}
+  @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:80px 0;}
+  .kicker{
+    font-family:'Bungee',sans-serif; font-size:12px; letter-spacing:.1em; direction:ltr;
+    color:var(--gold); margin-bottom:14px; display:block;
+  }
+  .sec-head{max-width:640px; margin-bottom:52px;}
+  .sec-head h2{font-size:clamp(26px,3.4vw,38px); margin:0 0 14px;}
+  .sec-head p{opacity:0.78; font-size:16px; margin:0;}
+  .sec-alt{background:rgba(255,255,255,0.02); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+
+  /* ---------- GAMES ---------- */
+  .game-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .game-card{
+    border-radius:18px; padding:30px 26px; border:1px solid var(--line);
+    background:var(--ink-2); position:relative; overflow:hidden; transition:transform .2s ease;
+  }
+  .game-card:hover{transform:translateY(-6px);}
+  .game-card.active{border-color:rgba(196,35,47,0.4);}
+  .game-card .icon{font-size:34px; margin-bottom:18px; display:block;}
+  .game-card h3{margin:0 0 8px; font-size:19px;}
+  .game-card p{margin:0 0 18px; opacity:.75; font-size:14px;}
+  .pill{
+    font-family:'Bungee',sans-serif; font-size:10px; padding:5px 12px; border-radius:100px; direction:ltr; display:inline-block;
+  }
+  .pill.live{background:rgba(52,179,106,0.18); color:var(--emerald);}
+  .pill.soon{background:rgba(244,236,217,0.1); color:var(--paper); opacity:.7;}
+
+  /* ---------- ABOUT / STATS ---------- */
+  .about-grid{display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:start;}
+  .about-text p{opacity:0.85; font-size:16px;}
+  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .stat{
+    border:1px solid var(--line); border-radius:14px; padding:24px 20px;
+    background:var(--ink-2); position:relative; overflow:hidden;
+  }
+  .stat::before{content:''; position:absolute; inset:0 0 auto 0; height:4px;}
+  .stat.c1::before{background:var(--gold);}
+  .stat.c2::before{background:var(--ember);}
+  .stat.c3::before{background:var(--emerald);}
+  .stat.c4::before{background:var(--sapphire);}
+  .stat b{font-family:'Bungee',sans-serif; font-size:30px; display:block; direction:ltr; margin-bottom:6px;}
+  .stat.c1 b{color:var(--gold);}
+  .stat.c2 b{color:var(--ember);}
+  .stat.c3 b{color:var(--emerald);}
+  .stat.c4 b{color:var(--sapphire);}
+  .stat span{font-size:14px; opacity:.75;}
+
+  /* ---------- LEADERBOARD ---------- */
+  .board{width:100%; border-collapse:separate; border-spacing:0 10px;}
+  .board th{text-align:right; font-size:12px; opacity:.55; font-weight:600; padding:0 18px;}
+  .board td{background:var(--ink-2); padding:16px 18px; font-size:15px; border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .board td:first-child{border-inline-start:1px solid var(--line); border-radius:12px 0 0 12px;}
+  .board td:last-child{border-inline-end:1px solid var(--line); border-radius:0 12px 12px 0;}
+  .rank-no{font-family:'Bungee',sans-serif; direction:ltr; width:34px; height:34px; border-radius:8px; display:inline-flex; align-items:center; justify-content:center; font-size:13px;}
+  tr.r1 .rank-no{background:linear-gradient(135deg,var(--gold),var(--ember)); color:var(--ink);}
+  tr.r2 .rank-no{background:rgba(244,236,217,0.16); color:var(--paper);}
+  tr.r3 .rank-no{background:rgba(233,150,63,0.22); color:var(--gold);}
+  tr:not(.r1):not(.r2):not(.r3) .rank-no{background:rgba(244,236,217,0.06); color:var(--paper); opacity:.7;}
+  .board .trophy{color:var(--gold); font-family:'Bungee',sans-serif; font-size:13px; direction:ltr;}
+
+  /* ---------- WAR LOG ---------- */
+  .warlog-list{display:flex; flex-direction:column; gap:12px;}
+  .warlog-item{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    background:var(--ink-2); border:1px solid var(--line); border-radius:14px; padding:18px 22px; flex-wrap:wrap;
+  }
+  .warlog-item .vs{font-size:15px;}
+  .warlog-item .vs b{opacity:.6; font-weight:600; font-size:12px; display:block; margin-bottom:4px;}
+  .war-result{font-family:'Bungee',sans-serif; font-size:13px; direction:ltr; padding:6px 14px; border-radius:100px;}
+  .war-result.win{background:rgba(52,179,106,0.16); color:var(--emerald);}
+  .war-result.close{background:rgba(196,35,47,0.16); color:var(--gold);}
+  .war-result.loss{background:rgba(212,42,60,0.16); color:var(--crimson);}
+
+  /* ---------- NEWS ---------- */
+  .news-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .news-card{background:var(--ink-2); border:1px solid var(--line); border-radius:16px; padding:26px; position:relative;}
+  .news-date{font-family:'Bungee',sans-serif; font-size:11px; color:var(--gold); direction:ltr; display:block; margin-bottom:14px;}
+  .news-card h3{margin:0 0 10px; font-size:17px;}
+  .news-card p{margin:0; opacity:.75; font-size:14px;}
+
+  /* ---------- ROLES / MEMBERS ---------- */
+  .role-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .role-card{
+    border-radius:16px; padding:30px 26px; border:1px solid var(--line);
+    background:var(--ink-2); position:relative; transition:transform .2s ease, border-color .2s ease;
+  }
+  .role-card:hover{transform:translateY(-6px);}
+  .role-badge{
+    width:52px;height:52px;border-radius:12px; display:flex; align-items:center; justify-content:center;
+    font-family:'Bungee',sans-serif; font-size:12px; color:var(--ink); margin-bottom:20px; direction:ltr;
+  }
+  .role-card.leader .role-badge{background:linear-gradient(135deg,var(--gold),var(--ember));}
+  .role-card.leader{border-color:rgba(196,35,47,0.35);}
+  .role-card.coleader .role-badge{background:linear-gradient(135deg,var(--sapphire),var(--elixir));}
+  .role-card.coleader{border-color:rgba(63,127,209,0.35);}
+  .role-card.elder .role-badge{background:linear-gradient(135deg,var(--emerald),var(--sapphire));}
+  .role-card.elder{border-color:rgba(52,179,106,0.35);}
+  .role-card h3{margin:0 0 10px; font-size:18px; direction:ltr; text-align:right;}
+  .role-card p{margin:0; opacity:0.78; font-size:15px;}
+
+  /* ---------- RULES ---------- */
+  .rules-list{display:flex; flex-direction:column; gap:14px; max-width:760px;}
+  .rule-item{
+    display:flex; gap:16px; align-items:flex-start; background:var(--ink-2);
+    border:1px solid var(--line); border-radius:14px; padding:18px 20px;
+  }
+  .rule-no{
+    font-family:'Bungee',sans-serif; font-size:13px; color:var(--ink); background:var(--gold);
+    width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center;
+    flex:none; direction:ltr;
+  }
+  .rule-item p{margin:0; font-size:15px; opacity:.88;}
+
+  /* ---------- CAMPAIGN PATH ---------- */
+  .path{display:flex; align-items:flex-start; justify-content:space-between; gap:8px; position:relative; margin-top:20px;}
+  .path::before{
+    content:''; position:absolute; top:27px; right:6%; left:6%; height:3px;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 14px, transparent 14px 24px);
+    opacity:.5;
+  }
+  .path-step{flex:1; text-align:center; position:relative; z-index:1;}
+  .path-dot{
+    width:56px; height:56px; border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center;
+    font-family:'Bungee',sans-serif; font-size:15px; color:var(--ink); border:4px solid var(--ink);
+  }
+  .path-step:nth-child(1) .path-dot{background:var(--emerald);}
+  .path-step:nth-child(2) .path-dot{background:var(--sapphire);}
+  .path-step:nth-child(3) .path-dot{background:var(--ember);}
+  .path-step:nth-child(4) .path-dot{background:var(--gold);}
+  .path-step b{display:block; font-family:'Bungee',sans-serif; font-size:12px; direction:ltr; opacity:.9;}
+  .path-step span{display:block; font-size:12px; opacity:.6; margin-top:4px;}
+
+  /* ---------- RECRUIT ---------- */
+  .recruit{
+    border-radius:24px; padding:56px; position:relative; overflow:hidden;
+    background:
+      radial-gradient(500px 300px at 100% 0%, rgba(212,42,60,0.25), transparent 60%),
+      radial-gradient(500px 300px at 0% 100%, rgba(63,127,209,0.22), transparent 60%),
+      var(--ink-2);
+    border:1px solid var(--line);
+    display:grid; grid-template-columns:1.1fr 1fr; gap:50px;
+  }
+  .recruit h2{font-size:clamp(24px,3vw,32px); margin:0 0 14px;}
+  .recruit p{opacity:.82; margin-bottom:28px;}
+  .req-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  .req-list li{display:flex; align-items:flex-start; gap:12px; font-size:15px; opacity:.9;}
+  .req-list li::before{
+    content:''; width:9px; height:9px; border-radius:50%; margin-top:8px; flex:none;
+  }
+  .req-list li:nth-child(1)::before{background:var(--gold);}
+  .req-list li:nth-child(2)::before{background:var(--ember);}
+  .req-list li:nth-child(3)::before{background:var(--emerald);}
+  .req-list li:nth-child(4)::before{background:var(--sapphire);}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:36px 0; margin-top:20px;}
+  .foot-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .foot-links{display:flex; gap:22px; font-size:14px;}
+  .foot-links a{opacity:.75; text-decoration:none;}
+  .foot-links a:hover{opacity:1; color:var(--gold);}
+  .foot-note{font-size:13px; opacity:.55;}
+
+  @media (max-width:900px){
+    .about-grid, .recruit{grid-template-columns:1fr;}
+    .role-grid, .game-grid, .news-grid{grid-template-columns:1fr;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-art{order:-1;}
+    .burger{display:block;}
+    nav.links{
+      position:fixed; inset:0 0 0 auto; width:82%; max-width:340px; height:100vh;
+      background:var(--ink-2); border-inline-start:1px solid var(--line);
+      flex-direction:column; align-items:stretch; gap:2px; padding:90px 18px 24px;
+      transform:translateX(105%); transition:transform .25s ease; z-index:70;
+    }
+    nav.links.open{transform:translateX(0);}
+    nav.links > a{padding:14px 12px; border-bottom:1px solid var(--line);}
+    .has-drop{width:100%;}
+    .drop-trigger{width:100%; justify-content:space-between; padding:14px 12px; border-bottom:1px solid var(--line);}
+    .dropdown{
+      position:static; opacity:1; visibility:visible; transform:none; display:none;
+      background:none; border:none; box-shadow:none; margin:0; padding:0 0 0 14px;
+    }
+    .has-drop.open .dropdown{display:block;}
+    .has-drop.open .dropdown{margin-top:4px;}
+    .nav-backdrop{position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:60; display:none;}
+    .nav-backdrop.open{display:block;}
+    .path{flex-direction:column; gap:26px; align-items:flex-start;}
+    .path::before{display:none;}
+    .path-step{display:flex; align-items:center; gap:16px; text-align:right; width:100%;}
+    .path-dot{margin:0;}
+    .warlog-item{flex-direction:column; align-items:flex-start;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <div class="crest"><span>ZX</span></div>
+      <div class="brand-name">ZXO</div>
+    </a>
+
+    <nav class="links" id="navLinks">
+      <a href="#home">⌂ خانه</a>
+
+      <div class="has-drop" id="dropGames">
+        <button class="drop-trigger" type="button">⚔️ کلن <span class="car">▾</span></button>
+        <div class="dropdown">
+          <a href="#games-coc">⚔️ Clash of Clans</a>
+          <a href="#games-cod">🔫 Call of Duty <span class="soon">SOON</span></a>
+          <a href="#games-mc">🟩 Minecraft <span class="soon">SOON</span></a>
+        </div>
+      </div>
+
+      <a href="#leaderboard">🏆 رتبه‌بندی</a>
+      <a href="#news">📢 اخبار</a>
+
+      <div class="has-drop" id="dropMore">
+        <button class="drop-trigger" type="button">☰ بیشتر <span class="car">▾</span></button>
+        <div class="dropdown">
+          <a href="#stats">📊 ZXO Stats</a>
+          <a href="#warlog">⚔️ War Log</a>
+          <a href="#members">👥 Members</a>
+          <a href="#rules">📜 Rules</a>
+          <a href="#join">📨 Join ZXO</a>
+        </div>
+      </div>
+    </nav>
+
+    <div style="display:flex; align-items:center; gap:12px;">
+      <a href="#join" class="btn btn-gold tag-en" style="display:none;" id="navJoinBtn">JOIN CLAN</a>
+      <button class="burger" id="burgerBtn" aria-label="منو">☰</button>
+    </div>
+  </div>
+  <div class="nav-backdrop" id="navBackdrop"></div>
+</header>
+
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">MULTI-GAME CLAN</span>
+      <h1>یک کلن، چند میدان جنگ، <em>یک هدف مشترک</em>.</h1>
+      <p class="lead">ZXO از Clash of Clans شروع شد و حالا داره به یک هاب چندبازی تبدیل می‌شه. جنگ‌های منظم، رتبه‌بندی زنده و جامعه‌ای که همیشه پشت همدیگه‌ست.</p>
+      <div class="hero-actions">
+        <a href="#join" class="btn btn-gold">درخواست عضویت</a>
+        <a href="https://link.clashofclans.com/fa?action=OpenClanProfile&tag=2UPLC9JY8" target="_blank" rel="noopener" class="btn btn-ghost">مشاهده کلن در بازی</a>
+      </div>
+      <div class="clan-tag">Clan Tag <a href="https://link.clashofclans.com/fa?action=OpenClanProfile&tag=2UPLC9JY8" target="_blank" rel="noopener" style="color:var(--gold)">#2UPLC9JY8</a></div>
+    </div>
+    <div class="hero-art">
+      <svg width="0" height="0" style="position:absolute;">
+        <filter id="flagWave" x="-10%" y="-10%" width="120%" height="120%">
+          <feTurbulence type="turbulence" baseFrequency="0.012 0.04" numOctaves="2" seed="5" result="turb">
+            <animate attributeName="baseFrequency" dur="7s" values="0.012 0.04;0.017 0.05;0.012 0.04" repeatCount="indefinite"/>
+          </feTurbulence>
+          <feDisplacementMap in="SourceGraphic" in2="turb" scale="6" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+      </svg>
+      <img src="zxo-hero.jpg" alt="لوگوی ZXO">
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="mid">لول کلن: 1</span>
+    <span class="win">کلن در حال جذب عضو جدیده</span>
+    <span class="mid">جنگ اول هفته در حال انجام — برنده هنوز مشخص نیست</span>
+    <span class="win">تیم ZXO در Call of Duty در حال پیشرفته</span>
+    <span class="mid">لول کلن: 1</span>
+    <span class="win">کلن در حال جذب عضو جدیده</span>
+    <span class="mid">جنگ اول هفته در حال انجام — برنده هنوز مشخص نیست</span>
+    <span class="win">تیم ZXO در Call of Duty در حال پیشرفته</span>
+  </div>
+</div>
+
+<section id="games">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">GAMES</span>
+      <h2>بازی‌های زیرمجموعه‌ی ZXO</h2>
+      <p>در حال حاضر جنگ اصلی توی Clash of Clans برگزار می‌شه، و بخش کلن‌های Call of Duty و Minecraft به‌زودی راه‌اندازی می‌شن.</p>
+    </div>
+    <div class="game-grid">
+      <div class="game-card active" id="games-coc">
+        <span class="icon">⚔️</span>
+        <span class="pill live">LIVE</span>
+        <h3 style="margin-top:14px;">Clash of Clans</h3>
+        <p>کلن اصلی و فعال ZXO — جنگ‌های منظم، CWL و رتبه‌بندی زنده.</p>
+        <a href="https://link.clashofclans.com/fa?action=OpenClanProfile&tag=2UPLC9JY8" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:13px; padding:8px 16px;">مشاهده کلن</a>
+      </div>
+      <div class="game-card" id="games-cod">
+        <span class="icon">🔫</span>
+        <span class="pill soon">SOON</span>
+        <h3 style="margin-top:14px;">Call of Duty</h3>
+        <p>تیم ZXO برای موبایل و وارزون در حال شکل‌گیریه. به‌زودی جزئیات اعلام می‌شه.</p>
+      </div>
+      <div class="game-card" id="games-mc">
+        <span class="icon">🟩</span>
+        <span class="pill soon">SOON</span>
+        <h3 style="margin-top:14px;">Minecraft</h3>
+        <p>سرور خصوصی ZXO برای ساخت‌وساز و سروایول به‌زودی راه‌اندازی می‌شه.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="stats" class="sec-alt">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <span class="kicker">ABOUT</span>
+      <h2>دهکده‌ای که با هم می‌سازیمش</h2>
+      <p>ZXO با یک گروه دوستانه شکل گرفت و حالا به کلنی با سابقه‌ی جنگی قوی تبدیل شده. قانون ما ساده است: توی هر جنگ حمله کن، پایگاه‌ت رو مرتب آپدیت کن، و به بقیه‌ی اعضا کمک کن.</p>
+      <p>هر عضو جدید اول توی «کلن مادر» عضو می‌شه تا با قوانین آشنا بشه، بعد بسته به تراف و لول تاون‌هال وارد کلن اصلی جنگی می‌شه.</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat c1"><b id="statLevel">1</b><span>لول کلن</span></div>
+      <div class="stat c2"><b id="statTrophies">941</b><span>مجموع ترافی اعضا</span></div>
+      <div class="stat c3"><b id="statWinRate">TBD</b><span>نتیجه‌ی جنگ اول هفته</span></div>
+      <div class="stat c4"><b id="statMembers">8/50</b><span>عضو (ظرفیت ۵۰)</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="leaderboard">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">LEADERBOARD</span>
+      <h2>رتبه‌بندی اعضا</h2>
+      <p>برترین اعضا بر اساس امتیاز ترافی این فصل.</p>
+    </div>
+    <table class="board">
+      <thead>
+        <tr><th>رتبه</th><th>بازیکن</th><th>نقش</th><th>ترافی</th></tr>
+      </thead>
+      <tbody id="boardBody">
+        <tr class="r1"><td><span class="rank-no">01</span></td><td>Dark Sultan</td><td>Leader</td><td class="trophy">307 🏆</td></tr>
+        <tr class="r2"><td><span class="rank-no">02</span></td><td>aMiR</td><td>Co-Leader</td><td class="trophy">281 🏆</td></tr>
+        <tr class="r3"><td><span class="rank-no">03</span></td><td>بخی کنگ</td><td>Elder</td><td class="trophy">252 🏆</td></tr>
+        <tr><td><span class="rank-no">04</span></td><td>خصم</td><td>Elder</td><td class="trophy">101 🏆</td></tr>
+        <tr><td><span class="rank-no">05</span></td><td>Mustafa</td><td>Co-Leader</td><td class="trophy">0 🏆</td></tr>
+        <tr><td><span class="rank-no">06</span></td><td>پاتریک</td><td>Co-Leader</td><td class="trophy">0 🏆</td></tr>
+        <tr><td><span class="rank-no">07</span></td><td>MmmM</td><td>Elder</td><td class="trophy">0 🏆</td></tr>
+        <tr><td><span class="rank-no">08</span></td><td>ARMiN</td><td>Elder</td><td class="trophy">0 🏆</td></tr>
+      </tbody>
+    </table>
+    <p id="boardStatus" style="font-size:12px; opacity:.5; margin-top:10px;"></p>
+  </div>
+</section>
+
+<section id="warlog" class="sec-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">WAR LOG</span>
+      <h2>آخرین جنگ‌ها</h2>
+      <p>نتایج جنگ‌های اخیر کلن.</p>
+    </div>
+    <div class="warlog-list" id="warlogList">
+      <div class="warlog-item">
+        <div class="vs"><b>جنگ اول هفته</b>در حال انجام</div>
+        <span class="war-result close">نتیجه هنوز مشخص نیست</span>
+      </div>
+    </div>
+    <p id="warlogStatus" style="font-size:12px; opacity:.5; margin-top:10px;">به‌محض اینکه این جنگ تموم شد و جنگ‌های بعدی برگزار شد، لاگ کامل‌تر می‌شه.</p>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">NEWS</span>
+      <h2>اخبار کلن</h2>
+      <p>آخرین اعلامیه‌ها و اتفاقات ZXO.</p>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <span class="news-date">این هفته</span>
+        <h3>کلن در حال جذب عضو جدید</h3>
+        <p>ZXO داره به‌سرعت عضو جدید جذب می‌کنه و ظرفیتش داره پر می‌شه — اگه می‌خوای عضو بشی الان بهترین زمانه.</p>
+      </div>
+      <div class="news-card">
+        <span class="news-date">این هفته</span>
+        <h3>جنگ اول هفته در حال انجام</h3>
+        <p>اولین جنگ کلنی این هفته شروع شده و نتیجه‌ی نهایی هنوز مشخص نشده.</p>
+      </div>
+      <div class="news-card">
+        <span class="news-date">در حال پیشرفت</span>
+        <h3>پیشرفت تیم Call of Duty</h3>
+        <p>بخش ZXO در Call of Duty داره جلو می‌ره؛ جزئیات بیشتر به‌زودی اعلام می‌شه.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="members" class="sec-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">MEMBERS</span>
+      <h2>جایگاه‌های کلن</h2>
+      <p>هر جایگاه مسئولیت مشخصی توی مدیریت جنگ و دهکده داره.</p>
+    </div>
+    <div class="role-grid">
+      <div class="role-card leader">
+        <div class="role-badge">LDR</div>
+        <h3>LEADER</h3>
+        <p>مدیریت کلی کلن، شروع جنگ‌ها و تصمیم‌گیری نهایی.</p>
+      </div>
+      <div class="role-card coleader">
+        <div class="role-badge">CO</div>
+        <h3>CO-LEADER</h3>
+        <p>پذیرش عضو جدید، نظم جنگ و پشتیبانی از اعضا.</p>
+      </div>
+      <div class="role-card elder">
+        <div class="role-badge">ELD</div>
+        <h3>ELDER</h3>
+        <p>کمک به اعضای تازه‌وارد و راهنمایی استراتژی حمله.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">RULES</span>
+      <h2>قوانین کلن</h2>
+      <p>رعایت این قوانین برای موندن توی روستر اصلی جنگ الزامیه.</p>
+    </div>
+    <div class="rules-list">
+      <div class="rule-item"><span class="rule-no">01</span><p>در هر جنگ کلنی حداقل یک حمله رو انجام بده.</p></div>
+      <div class="rule-item"><span class="rule-no">02</span><p>پایگاهت رو مرتب آپدیت کن و پایگاه جنگی فعال داشته باش.</p></div>
+      <div class="rule-item"><span class="rule-no">03</span><p>به اعضای دیگه احترام بذار؛ توهین و بی‌احترامی ممنوعه.</p></div>
+      <div class="rule-item"><span class="rule-no">04</span><p>غیبت طولانی بدون اطلاع، باعث حذف از روستر اصلی می‌شه.</p></div>
+      <div class="rule-item"><span class="rule-no">05</span><p>از donation درخواستی برای آماده‌سازی جنگ دریغ نکن.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="campaign" class="sec-alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">CAMPAIGN</span>
+      <h2>مسیر تا اوج جنگی</h2>
+      <p>مراحلی که هر عضو تازه‌وارد برای رسیدن به روستر اصلی جنگ طی می‌کنه.</p>
+    </div>
+    <div class="path">
+      <div class="path-step"><div class="path-dot">01</div><b>JOIN CLAN</b><span>ورود اولیه</span></div>
+      <div class="path-step"><div class="path-dot">02</div><b>MOTHER CLAN</b><span>آشنایی با قوانین</span></div>
+      <div class="path-step"><div class="path-dot">03</div><b>WAR TRIAL</b><span>آزمایش در جنگ</span></div>
+      <div class="path-step"><div class="path-dot">04</div><b>MAIN ROSTER</b><span>روستر اصلی</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="join">
+  <div class="wrap">
+    <div class="recruit">
+      <div>
+        <span class="kicker">RECRUITMENT</span>
+        <h2>می‌خوای وارد ZXO بشی؟</h2>
+        <p>درخواستت رو بفرست، رهبری کلن ظرف ۲۴ ساعت بررسی می‌کنه.</p>
+        <a href="https://t.me/AmirhossinZXO" target="_blank" rel="noopener" class="btn btn-gold">ارسال درخواست عضویت</a>
+        <a href="https://link.clashofclans.com/fa?action=OpenClanProfile&tag=2UPLC9JY8" target="_blank" rel="noopener" class="btn btn-ghost" style="margin-inline-start:10px;">پیوستن مستقیم در بازی</a>
+        <div class="clan-tag" style="margin-top:18px;">پشتیبانی و ثبت‌نام در تلگرام
+          <a href="https://t.me/AmirhossinZXO" target="_blank" rel="noopener" style="color:var(--gold)">@AmirhossinZXO</a>
+        </div>
+      </div>
+      <ul class="req-list">
+        <li>حداقل تاون‌هال ۱۰</li>
+        <li>شرکت در حداقل ۸ حمله از ۱۰ جنگ اخیر</li>
+        <li>حضور فعال در گروه کلن</li>
+        <li>احترام به اعضا و پیروی از قوانین جنگ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div class="brand">
+      <div class="crest" style="width:30px;height:30px;"><span style="width:22px;height:22px;font-size:11px;">ZX</span></div>
+      <b>ZXO</b>
+    </div>
+    <div class="foot-links">
+      <a href="https://t.me/AmirhossinZXO" target="_blank" rel="noopener">تلگرام</a>
+      <a href="#">دیسکورد</a>
+      <a href="#">اینستاگرام</a>
+    </div>
+  </div>
+  <div class="wrap foot-note" style="margin-top:18px;">© ۱۴۰۵ ZXO Clan — این سایت طرفدارساخته است و به شرکت‌های Supercell و Activision و Mojang وابسته نیست.</div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  const backdrop = document.getElementById('navBackdrop');
+  function closeMenu(){
+    navLinks.classList.remove('open');
+    backdrop.classList.remove('open');
+    document.querySelectorAll('.has-drop.open').forEach(el => el.classList.remove('open'));
+  }
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    backdrop.classList.toggle('open');
+  });
+  backdrop.addEventListener('click', closeMenu);
+
+  // Dropdown toggle (works for mobile tap; desktop still has hover via CSS)
+  document.querySelectorAll('.has-drop').forEach(drop => {
+    const trigger = drop.querySelector('.drop-trigger');
+    trigger.addEventListener('click', (e) => {
+      if (window.innerWidth <= 900) {
+        e.preventDefault();
+        drop.classList.toggle('open');
+      }
+    });
+  });
+
+  // Close mobile menu after clicking a link
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => { if (window.innerWidth <= 900) closeMenu(); });
+  });
+</script>
+
+</body>
+</html>
